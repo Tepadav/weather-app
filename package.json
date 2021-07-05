@@ -1,0 +1,28 @@
+{
+  "name": "weather-app",
+  "description": "## Overview This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tepadav/weather-app.git"
+  },
+  "keywords": [
+    "weather-app"
+  ],
+  "author": "Peter Amir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tepadav/weather-app/issues"
+  },
+  "homepage": "https://github.com/Tepadav/weather-app#readme"
+}

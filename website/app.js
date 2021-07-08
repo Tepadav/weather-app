@@ -12,6 +12,12 @@ const
     newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
     
 /* helper functions */
+const updateUI = (storedData) => {
+    const newData = storedData.slice();
+    date.innerHTML = newData.date;
+    temp.innerHTML = newData.temp;
+    content.innerHTML = newData.content;
+}
 
 /* Main Functions */
 const generateData = () => {
@@ -19,7 +25,11 @@ const generateData = () => {
     getWeaterData(baseUrl, newZipCode, apiKey)
         .then((data) => {
             postData('/app-data', data);
-        })
+        });
+    getAppData()
+        .then((storedData) => {
+            updateUI(storedData);
+        });
 }
 
 const getWeaterData = async (baseUrl, zipCode, apiKey) => {
@@ -31,9 +41,6 @@ const getWeaterData = async (baseUrl, zipCode, apiKey) => {
             temp: data.main.temp,
             content: document.getElementById('feelings').value
         }
-        date.innerHTML = newData.date;
-        temp.innerHTML = newData.temp;
-        content.innerHTML = newData.content;
         return newData
     } catch(err) {
         console.log('error', err);
@@ -52,6 +59,16 @@ const postData = async (url = '', data = {}) => {
     try {
         const newData = await res.json();
         return newData;
+    } catch(err) {
+        console.log('error', err);
+    }
+}
+
+const getAppData = async () => {
+    const req = await fetch('/app-data');
+    try {
+        const storedData = await req.json();
+        return storedData
     } catch(err) {
         console.log('error', err);
     }

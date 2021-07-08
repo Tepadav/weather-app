@@ -28,12 +28,12 @@ app.get('/app-data', (req, res) => {
 
 app.post('/app-data', (req, res) => {
     const data = req.body;
-    projectData.temp = data.temperature;
+    projectData.temp = data.temp;
     projectData.data = data.date;
-    projectData.userResponse = data.userResponse;
+    projectData.content = data.content;
 });
 
-const port = 8000
+const port = 8000;
 // Setup Server
 const server = app.listen(port, listening);
 

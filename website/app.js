@@ -16,22 +16,48 @@ const
 /* Main Functions */
 const generateData = () => {
     const newZipCode = document.getElementById('zip').value;
-    getWeaterData(baseUrl, newZipCode, apiKey);
+    getWeaterData(baseUrl, newZipCode, apiKey)
+        .then((data) => {
+            postData('/app-data', data);
+        })
 }
 
 const getWeaterData = async (baseUrl, zipCode, apiKey) => {
-    const request = await fetch(baseUrl + zipCode + apiKey);
+    const req = await fetch(baseUrl + zipCode + apiKey);
     try {
-        const data = await request.json();
-        console.log(data);
-        // return data;
+        const data = await req.json();
+        const newData = {
+            date: newDate,
+            temp: data.main.temp,
+            content: document.getElementById('feelings').value
+        }
+        date.innerHTML = newData.date;
+        temp.innerHTML = newData.temp;
+        content.innerHTML = newData.content;
+        return newData
+    } catch(err) {
+        console.log('error', err);
+    }
+}
+
+const postData = async (url = '', data = {}) => {
+    const res = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data) 
+    });
+    try {
+        const newData = await res.json();
+        return newData;
     } catch(err) {
         console.log('error', err);
     }
 }
 /* Event Listeners */
 window.addEventListener('load', () => {
-    console.log(generateBtn);
     // setup Event Listner to generate data when click on generate button
     generateBtn.addEventListener('click', () => {
         generateData();

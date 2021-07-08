@@ -8,7 +8,17 @@ __Description__:
 
 It's a weather-Journal application that fetch its data from an API according to zip code and save it and display it in the page. This project is made using a local server.
 
-dependencies: Nodejs Express cors body-parser nodemon[dev_only] 
+Dependencies: 
+
+> **Nodejs**
+> 
+> **Express**  
+> 
+> **cors**
+> 
+> **body-parser**
+> 
+> **nodemon[dev_only]**
 
 __Author__: FWD Team
 

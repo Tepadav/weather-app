@@ -1,10 +1,17 @@
-# Weather-Journal App Project
+# Weather App Project
 
-## Overview
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
+## General Information
+__Project Name__: Weather App
 
-## Instructions
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
+__Description__: 
+> It's the final product of udicity weather-Journal App (proejct 2)
 
-## Extras
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
+It's a weather-Journal application that fetch its data from an API according to zip code and save it and display it in the page. This project is made using a local server.
+
+dependencies: Nodejs Express cors body-parser nodemon[dev_only] 
+
+__Author__: FWD Team
+
+__Edited by__: Peter Amir
+
+__Github Link__: [Weather App](https://github.com/Tepadav/weather-app "weather app")

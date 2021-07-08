@@ -29,7 +29,7 @@ app.get('/app-data', (req, res) => {
 app.post('/app-data', (req, res) => {
     const data = req.body;
     projectData.temp = data.temp;
-    projectData.data = data.date;
+    projectData.date = data.date;
     projectData.content = data.content;
 });
 

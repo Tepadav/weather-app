@@ -8,15 +8,14 @@ const
     generateBtn = document.getElementById('generate');
 
 // Create a new date instance dynamically with JS
-    d = new Date();
-    newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+d = new Date();
+newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
     
 /* helper functions */
 const updateUI = (storedData) => {
-    const newData = storedData.slice();
-    date.innerHTML = newData.date;
-    temp.innerHTML = newData.temp;
-    content.innerHTML = newData.content;
+    date.innerHTML = storedData.date;
+    temp.innerHTML = storedData.temp;
+    content.innerHTML = storedData.content;
 }
 
 /* Main Functions */
@@ -25,10 +24,12 @@ const generateData = () => {
     getWeaterData(baseUrl, newZipCode, apiKey)
         .then((data) => {
             postData('/app-data', data);
-        });
-    getAppData()
-        .then((storedData) => {
-            updateUI(storedData);
+        })
+        .then(() => {
+            getAppData()
+                .then((storedData) => {
+                    updateUI(storedData);
+                });
         });
 }
 

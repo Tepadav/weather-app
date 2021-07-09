@@ -1,5 +1,6 @@
 /* Global Variables */
 const
+    apiKey = '&appid=8a0ff98723c3f28856581b88cdd91bf0&units=imperial',
     baseUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=',
     apiKey = '&appid=8a0ff98723c3f28856581b88cdd91bf0',
     date = document.getElementById('date'),
@@ -9,7 +10,7 @@ const
 
 // Create a new date instance dynamically with JS
 d = new Date();
-newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
     
 /* helper functions */
 const updateUI = (storedData) => {
